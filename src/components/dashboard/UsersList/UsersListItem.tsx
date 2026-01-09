@@ -33,6 +33,14 @@ export const UsersListItem = ({ user, index }: UsersListItemProps) => {
           <span className="user-card__detail-label">{USER_CARD_ADDRESS_LABEL}</span>
           <span className="user-card__detail-value">
             {user.address.street}, {user.address.suite}, {user.address.city} {user.address.zipcode}
+            <div className="user-card__map">
+              <iframe
+                width="100%"
+                height="150"
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${parseFloat(user.address.geo.lng) - 0.001},${parseFloat(user.address.geo.lat) - 0.001},${parseFloat(user.address.geo.lng) + 0.001},${parseFloat(user.address.geo.lat) + 0.001}&layer=mapnik&marker=${user.address.geo.lat},${user.address.geo.lng}`}
+                title={`Map for ${user.name}`}
+              />
+            </div>
           </span>
         </div>
 

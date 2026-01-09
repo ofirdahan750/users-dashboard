@@ -1,0 +1,36 @@
+@use "../abstracts/variables" as *;
+
+.app-main {
+  width: 100%;
+
+  @media (min-width: $breakpoint-md) {
+    max-width: 75rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: 90rem;
+  }
+
+  &__panel {
+    background: $color-light-surface;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-xl;
+    padding: $space-4;
+    border: 1px solid $color-light-border-subtle;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    overflow: hidden;
+
+    @media (min-width: 640px) {
+      padding: $space-6;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      padding: $space-8;
+    }
+
+    .app-root--theme-dark & {
+      background: $color-dark-surface;
+      border-color: $color-dark-border-subtle;
+    }
+  }
+}

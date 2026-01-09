@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@function rem($pixels, $base: 16) {
+  @return math.div($pixels, $base) * 1rem;
+}
+
+@function spacing($multiplier) {
+  @return $multiplier * 0.25rem;
+}
+
+@function line-height($font-size-px, $line-height-px) {
+  @return math.div($line-height-px, $font-size-px);
+}
+
+@function line-height-from-rem($font-size-rem, $ratio) {
+  $font-size-px: $font-size-rem * 16;
+  $line-height-px: $font-size-px * $ratio;
+  @return line-height($font-size-px, $line-height-px);
+}

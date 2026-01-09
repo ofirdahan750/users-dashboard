@@ -1,0 +1,52 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+.state {
+  margin-top: $space-4;
+  padding: $space-4;
+  border-radius: $radius-lg;
+  border: 1px solid $color-light-border-subtle;
+  @include flex-column(center, flex-start, $space-3);
+
+  @include responsive(sm) {
+    margin-top: $space-6;
+    padding: $space-5;
+  }
+
+  &--info {
+    background-color: $color-light-accent-soft;
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  &--error {
+    background-color: $color-light-danger-soft;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  &--muted {
+    background-color: $color-light-surface-alt;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    color: $color-light-text-muted;
+    text-align: center;
+    line-height: line-height-from-rem(0.9, 1.5);
+
+    @media (min-width: 640px) {
+      font-size: 1rem;
+      line-height: line-height-from-rem(1, 1.5);
+    }
+  }
+
+  .app-root--theme-dark & {
+    &--info {
+      background-color: $color-dark-accent-soft;
+    }
+
+    &--muted {
+      background-color: $color-dark-surface-alt;
+    }
+  }
+}

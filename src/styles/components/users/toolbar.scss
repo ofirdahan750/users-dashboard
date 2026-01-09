@@ -1,0 +1,87 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.toolbar {
+  @include flex-column(flex-start, flex-start, $space-4);
+  margin-bottom: $space-4;
+  padding-bottom: $space-4;
+  border-bottom: 1px solid $color-light-border-subtle;
+
+  @include responsive(sm) {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: $space-6;
+    margin-bottom: $space-6;
+    padding-bottom: $space-6;
+
+    &__field {
+      flex: 2 1 0;
+
+      &:last-child {
+        flex: 1.2 1 0;
+      }
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: $color-light-text-muted;
+    text-transform: uppercase;
+
+    @media (min-width: 640px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__input,
+  &__select {
+    border-radius: $radius-md;
+    border: 1px solid $color-light-border-subtle;
+    background-color: $color-light-surface-alt;
+    padding: $space-3;
+    color: $color-light-text;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    width: 100%;
+
+    @media (min-width: 640px) {
+      padding: $space-3 $space-4;
+      font-size: 0.95rem;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-light-accent;
+      outline-offset: 2px;
+      border-color: $color-light-accent;
+      background-color: $color-light-surface;
+    }
+
+    &::placeholder {
+      color: $color-light-text-muted;
+    }
+  }
+
+  .app-root--theme-dark & {
+    border-bottom-color: $color-dark-border-subtle;
+
+    &__input,
+    &__select {
+      background-color: $color-dark-surface-alt;
+      color: $color-dark-text;
+      border-color: $color-dark-border-subtle;
+
+      &:focus-visible {
+        border-color: $color-dark-accent;
+        background-color: $color-dark-surface;
+      }
+    }
+  }
+}

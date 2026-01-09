@@ -1,0 +1,92 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+.app-header {
+  @include flex-column(center, flex-start, $space-4);
+  margin-bottom: $space-4;
+  text-align: center;
+
+  @include responsive(sm) {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-6;
+  }
+
+  @include responsive(md) {
+    margin-bottom: $space-8;
+  }
+
+  &__titles {
+    max-width: 100%;
+
+    @media (min-width: 640px) {
+      max-width: 100%;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      max-width: 32rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: line-height-from-rem(1.5, 1.2);
+    margin-bottom: $space-2;
+    color: $color-light-text;
+
+    @media (min-width: 640px) {
+      font-size: 2rem;
+      line-height: line-height-from-rem(2, 1.2);
+    }
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: line-height-from-rem(2.5, 1.2);
+      margin-bottom: $space-3;
+    }
+  }
+
+  &__subtitle {
+    font-size: 0.9rem;
+    color: $color-light-text-muted;
+    line-height: line-height-from-rem(0.9, 1.5);
+    font-weight: 400;
+
+    @media (min-width: 640px) {
+      font-size: 1rem;
+      line-height: line-height-from-rem(1, 1.5);
+    }
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.1rem;
+      line-height: line-height-from-rem(1.1, 1.5);
+    }
+  }
+
+  .app-root--theme-dark & {
+    &__title {
+      color: $color-dark-text;
+    }
+
+    &__subtitle {
+      color: $color-dark-text-muted;
+    }
+  }
+
+  &__actions {
+    @include flex-column(center, center, $space-2);
+
+    @include responsive(sm) {
+      flex-direction: row;
+      gap: $space-3;
+    }
+
+    .button {
+      width: auto !important;
+      max-width: fit-content !important;
+    }
+  }
+}

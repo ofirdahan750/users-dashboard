@@ -1,0 +1,175 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/functions" as *;
+
+.user-card {
+  background: $color-light-surface;
+  border-radius: $radius-lg;
+  padding: $space-4;
+  border: 2px solid rgba(100, 116, 139, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  @include transition(all, 0.2s, ease);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-out;
+
+  @media (min-width: 640px) {
+    padding: $space-5;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &:hover {
+      box-shadow: $shadow-lg;
+      transform: translateY(-2px);
+      border-color: $color-light-accent;
+    }
+  }
+
+  &__header {
+    margin-bottom: $space-4;
+    padding-bottom: $space-3;
+    border-bottom: 1px solid $color-light-border-subtle;
+
+    @media (min-width: 640px) {
+      margin-bottom: $space-5;
+      padding-bottom: $space-4;
+    }
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-light-text;
+    margin-bottom: $space-1;
+    line-height: line-height-from-rem(1.1, 1.3);
+
+    @media (min-width: 640px) {
+      font-size: 1.25rem;
+      line-height: line-height-from-rem(1.25, 1.3);
+    }
+  }
+
+  &__subtitle {
+    font-size: 0.875rem;
+    color: $color-light-text-muted;
+    font-weight: 400;
+    line-height: line-height-from-rem(0.875, 1.4);
+
+    @media (min-width: 640px) {
+      font-size: 0.9rem;
+      line-height: line-height-from-rem(0.9, 1.4);
+    }
+  }
+
+  &__details {
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    font-size: 0.85rem;
+    padding: $space-2 0;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: $space-4;
+      font-size: 0.875rem;
+      padding: $space-3 0;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-light-border-subtle;
+    }
+  }
+
+  &__detail-label {
+    color: $color-light-text-muted;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 5rem;
+    flex-shrink: 0;
+
+    @media (min-width: 640px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__detail-value {
+    color: $color-light-text;
+    font-weight: 400;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    flex: 1;
+
+    @include responsive(sm) {
+      @include truncate;
+    }
+  }
+
+  &__link {
+    color: $color-light-accent;
+    text-decoration: none;
+    @include transition(color, 0.2s, ease);
+
+    &:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $color-light-accent;
+    }
+  }
+
+  .app-root--theme-dark & {
+    background: $color-dark-surface-alt;
+    border-color: rgba(148, 163, 184, 0.4);
+
+    &:hover {
+      border-color: $color-dark-accent;
+      box-shadow: $shadow-md;
+    }
+
+    &__header {
+      border-bottom-color: $color-dark-border-subtle;
+    }
+
+    &__title {
+      color: $color-dark-text;
+    }
+
+    &__detail-row {
+      &:not(:last-child) {
+        border-bottom-color: $color-dark-border-subtle;
+      }
+    }
+
+    &__detail-value {
+      color: $color-dark-text;
+    }
+
+    &__link {
+      color: $color-dark-accent;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:visited {
+        color: $color-dark-accent;
+      }
+    }
+  }
+}

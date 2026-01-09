@@ -1,0 +1,83 @@
+@use "sass:color";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.button {
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  @include transition;
+  @include flex-center;
+  white-space: nowrap;
+  width: auto;
+  max-width: fit-content;
+
+  @include responsive(sm) {
+    padding: $space-3 $space-5;
+    font-size: 0.9rem;
+  }
+
+  &--primary {
+    background-color: $color-light-accent;
+    color: #ffffff;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: color.adjust($color-light-accent, $lightness: -5%);
+      box-shadow: $shadow-lg;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &--secondary {
+    background-color: $color-light-surface-alt;
+    color: $color-light-text;
+    border-color: $color-light-border-subtle;
+
+    &:hover {
+      background-color: color.adjust($color-light-surface-alt, $lightness: -2%);
+      border-color: color.adjust($color-light-border-subtle, $alpha: 0.4);
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $color-light-text-muted;
+    border-color: transparent;
+
+    &:hover {
+      background-color: $color-light-surface-alt;
+      color: $color-light-text;
+    }
+  }
+
+  .app-root--theme-dark & {
+    &--secondary {
+      background-color: $color-dark-surface-alt;
+      color: $color-dark-text;
+      border-color: $color-dark-border-subtle;
+
+      &:hover {
+        background-color: color.adjust($color-dark-surface-alt, $lightness: 5%);
+      }
+    }
+
+    &--ghost {
+      color: $color-dark-text-muted;
+
+      &:hover {
+        background-color: $color-dark-surface-alt;
+        color: $color-dark-text;
+      }
+    }
+  }
+}

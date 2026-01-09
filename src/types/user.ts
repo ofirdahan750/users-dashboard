@@ -1,8 +1,14 @@
+export type UserGeo = {
+  lat: string;
+  lng: string;
+};
+
 export type UserAddress = {
   street: string;
   suite: string;
   city: string;
   zipcode: string;
+  geo: UserGeo;
 };
 
 export type UserCompany = {

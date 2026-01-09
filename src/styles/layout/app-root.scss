@@ -23,7 +23,7 @@
   }
 
   &--theme-light {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 20%, #e8edf5 40%, #e0e7ff 60%, #f1f5f9 80%, #fafbfc 100%);
+    background: linear-gradient(135deg, $color-light-bg-gradient-start 0%, $color-light-bg-gradient-mid1 25%, $color-light-bg-gradient-mid2 50%, $color-light-bg-gradient-mid3 75%, $color-light-bg-gradient-end 100%);
   }
 
   &--theme-dark {

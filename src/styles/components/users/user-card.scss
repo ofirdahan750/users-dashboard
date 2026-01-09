@@ -6,8 +6,8 @@
   background: $color-light-surface;
   border-radius: $radius-lg;
   padding: $space-4;
-  border: 2px solid rgba(100, 116, 139, 0.4);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid $color-light-border-card;
+  box-shadow: $shadow-card;
   @include transition(all, 0.2s, ease);
   display: flex;
   flex-direction: column;

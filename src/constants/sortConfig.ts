@@ -1,5 +1,4 @@
-import type { UsersSortFieldName } from "../types/store";
-import type { User } from "../types/user";
+import type { UsersSortFieldName, User } from "types";
 
 export type SortFieldConfig = {
   field: UsersSortFieldName;

@@ -11,8 +11,10 @@
 
   @media (min-width: $breakpoint-sm) {
     margin-top: $space-6;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    align-items: stretch;
     gap: $space-5;
   }
 
@@ -21,27 +23,17 @@
   }
 
   @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
     gap: $space-6;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   > * {
     min-width: 0;
-    max-width: 100%;
-    flex: 0 0 100%;
-
-    @media (min-width: $breakpoint-sm) {
-      flex: 0 0 calc(50% - #{math.div($space-5, 2)});
-      max-width: calc(50% - #{math.div($space-5, 2)});
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      flex: 0 0 calc(33.333% - #{math.div($space-6 * 2, 3)});
-      max-width: calc(33.333% - #{math.div($space-6 * 2, 3)});
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      flex: 0 0 calc(25% - #{math.div($space-6 * 3, 4)});
-      max-width: calc(25% - #{math.div($space-6 * 3, 4)});
-    }
+    width: 100%;
+    height: 100%;
   }
 }

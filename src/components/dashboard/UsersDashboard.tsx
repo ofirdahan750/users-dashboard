@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchUsers, selectFilteredUsers } from "../../store/usersSlice";
+import { fetchUsers, selectFilteredUsers, toggleTheme } from "store";
 import {
   DASHBOARD_SUBTITLE,
   DASHBOARD_TITLE,
@@ -8,33 +8,26 @@ import {
   THEME_TOGGLE_LIGHT_TEXT,
   THEME_TOGGLE_DARK_TEXT,
   THEME_TOGGLE_ARIA_LABEL,
-} from "../../constants/texts";
-import { THEME_LIGHT } from "../../constants/theme";
-import type { Theme } from "../../types/theme";
+  THEME_LIGHT,
+} from "constants";
+import type { Theme, User, EmptyMessage, AppDispatch } from "types";
+import { useAppDispatch, useAppSelector } from "hooks";
 import { UsersToolbar } from "./UsersToolbar";
 import { UsersList } from "./UsersList/UsersList";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { toggleTheme } from "../../store/themeSlice";
-import { LoadingState } from "../common/LoadingState";
-import { ErrorState } from "../common/ErrorState";
-import { EmptyState } from "../common/EmptyState";
-import { Button } from "../common/Button";
-import type { User } from "../../types/user";
-import type { EmptyMessage } from "../../types/uiProps";
-import type { AppDispatch } from "../../types/store";
+import { LoadingState, ErrorState, EmptyState, Button } from "components/common";
 
 export const UsersDashboard = () => {
-  const dispatch: AppDispatch = useAppDispatch();
+  const dispatch: AppDispatch = useAppDispatch(); // send actions to store
 
-  const filteredUsers: User[] = useAppSelector(selectFilteredUsers);
-  const isLoading: boolean = useAppSelector((state) => state.loading.isLoading);
+  const filteredUsers: User[] = useAppSelector(selectFilteredUsers); // users after search/sort filter
+  const isLoading: boolean = useAppSelector((state) => state.loading.isLoading); // loading state
   const errorMessage: string = useAppSelector(
     (state) => state.users.errorMessage
-  );
-  const users: User[] = useAppSelector((state) => state.users.users);
-  const searchTerm: string = useAppSelector((state) => state.search.searchTerm);
+  ); // error message (if any)
+  const users: User[] = useAppSelector((state) => state.users.users); // all users from store
+  const searchTerm: string = useAppSelector((state) => state.search.searchTerm); // current search term
 
-  const theme: Theme = useAppSelector((state) => state.theme.mode);
+  const theme: Theme = useAppSelector((state) => state.theme.mode); // current theme mode
 
   // Fetch users from the API when the component first loads
   useEffect((): void => {

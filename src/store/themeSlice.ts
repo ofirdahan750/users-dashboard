@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { Theme } from "../types/theme";
-import { THEME_LIGHT, THEME_DARK } from "../constants/theme";
-import { LOCAL_STORAGE_KEY_THEME } from "../constants/store";
-import { localStorageUtil } from "../utils/localStorage";
+import type { Theme } from "types";
+import { THEME_LIGHT, THEME_DARK, LOCAL_STORAGE_KEY_THEME } from "constants";
+import { localStorageUtil } from "utils";
 
 const getInitialTheme = (): Theme => {
   const savedTheme = localStorageUtil.get<Theme>(LOCAL_STORAGE_KEY_THEME);

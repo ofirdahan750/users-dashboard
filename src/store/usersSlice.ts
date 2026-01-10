@@ -1,15 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { User } from "../types/user";
 import type {
+  User,
   UsersSortField,
   UsersSortFieldName,
   UsersSortDirection,
   UsersState,
   RootState,
-} from "../types/store";
-import { SLICE_NAME_USERS, SORT_VALUE_NAME_ASC } from "../constants/store";
-import { SORT_FIELDS } from "../constants/sortConfig";
+} from "types";
+import { SLICE_NAME_USERS, SORT_VALUE_NAME_ASC, SORT_FIELDS } from "constants";
 
 const USERS_API_URL = "https://jsonplaceholder.typicode.com/users";
 

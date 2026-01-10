@@ -1,7 +1,7 @@
 import { UsersListItem } from "./UsersListItem";
-import type { UsersListProps } from "../../../types/userProps";
+import type { UsersListProps } from "types";
 
-export const UsersList = ({ users }: UsersListProps) => {
+export const UsersList = ({ users }:  UsersListProps) => {
   return (
     <section className="users-list" aria-label="Users list">
       {users.map((user, index) => (

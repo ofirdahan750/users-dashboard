@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "./usersSlice";
+import { fetchUsers } from "store";
 
 const initialState = {
   isLoading: false,

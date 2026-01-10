@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
-import { ERROR_TEXT, RETRY_BUTTON_TEXT } from "../../constants/texts";
-import type { ErrorStateProps } from "../../types/uiProps";
+import { ERROR_TEXT, RETRY_BUTTON_TEXT } from "constants";
+import type { ErrorStateProps } from "types";
 
 export const ErrorState = ({
   message = ERROR_TEXT,

@@ -1,4 +1,4 @@
-import type { store } from "../store/store";
+import type { store } from "store";
 import type { User } from "./user";
 
 export type RootState = ReturnType<typeof store.getState>;

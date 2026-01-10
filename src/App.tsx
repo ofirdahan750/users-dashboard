@@ -4,8 +4,8 @@ import {
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { UsersDashboard } from "./components/dashboard/UsersDashboard";
-import { THEME_LIGHT, THEME_DARK } from "./constants/theme";
-import { useAppSelector } from "./hooks/reduxHooks";
+import { THEME_LIGHT, THEME_DARK } from "constants";
+import { useAppSelector } from "hooks";
 
 const AppContent = () => {
   const theme = useAppSelector((state) => state.theme.mode);

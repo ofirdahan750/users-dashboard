@@ -1,4 +1,4 @@
-import type { EmptyStateProps } from "../../types/uiProps";
+import type { EmptyStateProps } from "types";
 
 export const EmptyState = ({ message }: EmptyStateProps) => {
   return (

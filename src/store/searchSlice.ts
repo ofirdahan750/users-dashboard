@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { LOCAL_STORAGE_KEY_SEARCH } from "../constants/store";
-import { localStorageUtil } from "../utils/localStorage";
+import { LOCAL_STORAGE_KEY_SEARCH } from "constants";
+import { localStorageUtil } from "utils";
 
 // load saved search from localStorage when app starts
 const getInitialSearchTerm = (): string => {

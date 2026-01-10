@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import type { EMPTY_SEARCH_TEXT, EMPTY_STATE_TEXT } from "../constants/texts";
+import type { EMPTY_SEARCH_TEXT, EMPTY_STATE_TEXT } from "constants";
 
 export type LoadingStateProps = {
   message?: string;

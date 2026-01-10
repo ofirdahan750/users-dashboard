@@ -1,6 +1,6 @@
 import { Button as MuiButton } from "@mui/material";
 import type { ButtonProps as MuiButtonProps } from "@mui/material";
-import type { ButtonProps } from "../../types/uiProps";
+import type { ButtonProps } from "types";
 
 export const Button = ({
   children,

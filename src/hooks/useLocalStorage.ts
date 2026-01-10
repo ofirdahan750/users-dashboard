@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { localStorageUtil } from "../utils/localStorage";
+import { localStorageUtil } from "utils";
 
 // syncs state with localStorage, keeps data between page reloads
 export const useLocalStorage = <T,>(key: string, initialValue: T) => {

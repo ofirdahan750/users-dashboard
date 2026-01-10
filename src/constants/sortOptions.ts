@@ -1,5 +1,5 @@
 import { SORT_FIELDS } from "./sortConfig";
-import type { SortOption } from "../types/userProps";
+import type { SortOption } from "types";
 
 export const SORT_OPTIONS: SortOption[] = SORT_FIELDS.map((field) => ({
   groupLabel: field.label,

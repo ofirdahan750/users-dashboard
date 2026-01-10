@@ -1,5 +1,5 @@
-import { LOADING_TEXT } from "../../constants/texts";
-import type { LoadingStateProps } from "../../types/uiProps";
+import { LOADING_TEXT } from "constants";
+import type { LoadingStateProps } from "types";
 import { Spinner } from "./Spinner";
 
 export const LoadingState = ({ message = LOADING_TEXT }: LoadingStateProps) => {

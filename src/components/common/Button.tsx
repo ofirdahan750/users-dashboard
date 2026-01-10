@@ -11,7 +11,6 @@ export const Button = ({
   // convert our variant to mui variant
   const muiVariant = variant === "primary" ? "contained" : variant === "secondary" ? "outlined" : "text";
 
-  // remove color prop if it exists
   const muiProps = { ...props };
 
 

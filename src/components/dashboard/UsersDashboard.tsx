@@ -49,6 +49,11 @@ export const UsersDashboard = () => {
     dispatch(toggleTheme());
   };
 
+  // Retry fetching users when error occurs
+  const handleRetry = () => {
+    dispatch(fetchUsers());
+  };
+
   return (
     <div className={`app-root app-root--theme-${theme}`}>
       {isLoading && (
@@ -89,7 +94,7 @@ export const UsersDashboard = () => {
 
           {/* If loading finished but there was an error, show error message with retry button */}
           {!isLoading && errorMessage && (
-            <ErrorState onRetry={() => dispatch(fetchUsers())} />
+            <ErrorState onRetry={handleRetry} />
           )}
 
           {/* If no error and no users found, show empty state message */}

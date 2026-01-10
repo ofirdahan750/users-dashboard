@@ -40,23 +40,27 @@ export const UsersToolbar = () => {
     SEARCH_DEBOUNCE_DELAY
   );
 
-  // Save the debounced search term to the store
+  // Send debounced value to store
   useEffect((): void => {
     dispatch(setSearchTerm(debouncedSearchTerm));
   }, [debouncedSearchTerm, dispatch]);
 
+  // Sync input field with store value
   useEffect((): void => {
     setLocalSearchTerm(searchTerm);
   }, [searchTerm]);
 
+  // Keep user input in local state (before debouncing to store)
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setLocalSearchTerm(event.target.value);
   };
 
+  // Save sort selection to store
   const handleSortChange = (event: SelectChangeEvent<string>): void => {
     dispatch(setSortField(event.target.value as UsersSortField));
   };
 
+  // Clear search from input and store
   const handleClearSearch = (): void => {
     setLocalSearchTerm("");
     dispatch(setSearchTerm(""));

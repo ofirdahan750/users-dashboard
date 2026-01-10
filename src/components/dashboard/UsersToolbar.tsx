@@ -20,19 +20,25 @@ import { SORT_OPTIONS } from "../../constants/sortOptions";
 import { SEARCH_DEBOUNCE_DELAY } from "../../constants/store";
 import { setSortField } from "../../store/usersSlice";
 import { setSearchTerm } from "../../store/searchSlice";
-import type { UsersSortField } from "../../types/store";
+import type { AppDispatch, UsersSortField } from "../../types/store";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useDebounce } from "../../hooks/useDebounce";
+import type { Theme } from "../../types/theme";
 
 export const UsersToolbar = () => {
-  const dispatch = useAppDispatch();
+  const dispatch: AppDispatch = useAppDispatch();
 
-  const searchTerm = useAppSelector((state) => state.search.searchTerm);
-  const sortField = useAppSelector((state) => state.users.sortField);
-  const theme = useAppSelector((state) => state.theme.mode);
+  const searchTerm: string = useAppSelector((state) => state.search.searchTerm);
+  const sortField: UsersSortField = useAppSelector(
+    (state) => state.users.sortField
+  );
+  const theme: Theme = useAppSelector((state) => state.theme.mode);
 
-  const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
-  const debouncedSearchTerm = useDebounce(localSearchTerm, SEARCH_DEBOUNCE_DELAY);
+  const [localSearchTerm, setLocalSearchTerm] = useState<string>(searchTerm);
+  const debouncedSearchTerm: string = useDebounce(
+    localSearchTerm,
+    SEARCH_DEBOUNCE_DELAY
+  );
 
   useEffect(() => {
     dispatch(setSearchTerm(debouncedSearchTerm));

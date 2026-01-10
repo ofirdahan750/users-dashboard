@@ -21,9 +21,10 @@ import { EmptyState } from "../common/EmptyState";
 import { Button } from "../common/Button";
 import type { User } from "../../types/user";
 import type { EmptyMessage } from "../../types/uiProps";
+import type { AppDispatch } from "../../types/store";
 
 export const UsersDashboard = () => {
-  const dispatch = useAppDispatch();
+  const dispatch: AppDispatch = useAppDispatch();
 
   const filteredUsers: User[] = useAppSelector(selectFilteredUsers);
   const isLoading: boolean = useAppSelector((state) => state.loading.isLoading);
@@ -36,7 +37,7 @@ export const UsersDashboard = () => {
   const theme: Theme = useAppSelector((state) => state.theme.mode);
 
   // Fetch users from the API when the component first loads
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
@@ -47,7 +48,7 @@ export const UsersDashboard = () => {
     !users.length && !searchTerm ? EMPTY_STATE_TEXT : EMPTY_SEARCH_TEXT;
 
   // Toggle between light and dark theme
-  const handleThemeToggle = () => {
+  const handleThemeToggle = (): void => {
     dispatch(toggleTheme());
   };
 

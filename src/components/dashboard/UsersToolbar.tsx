@@ -40,6 +40,7 @@ export const UsersToolbar = () => {
     SEARCH_DEBOUNCE_DELAY
   );
 
+  // Save the debounced search term to the store
   useEffect((): void => {
     dispatch(setSearchTerm(debouncedSearchTerm));
   }, [debouncedSearchTerm, dispatch]);

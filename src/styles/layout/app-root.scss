@@ -45,8 +45,8 @@
   }
 
   &__loading-spinner {
-    width: rem(64);
-    height: rem(64);
+    width: px-to-rem(64);
+    height: px-to-rem(64);
     position: relative;
   }
 

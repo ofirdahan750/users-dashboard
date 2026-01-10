@@ -4,8 +4,8 @@
 
 .spinner {
   @include flex-center;
-  width: rem(48);
-  height: rem(48);
+  width: px-to-rem(48);
+  height: px-to-rem(48);
   position: relative;
 
   &__circle {

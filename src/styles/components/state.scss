@@ -29,13 +29,13 @@
   }
 
   &__text {
-    font-size: 0.9rem;
+    font-size: px-to-rem(14.4);
     color: $color-light-text-muted;
     text-align: center;
     line-height: line-height-from-rem(0.9, 1.5);
 
     @media (min-width: $breakpoint-sm) {
-      font-size: 1rem;
+      font-size: px-to-rem(16);
       line-height: line-height-from-rem(1, 1.5);
     }
   }

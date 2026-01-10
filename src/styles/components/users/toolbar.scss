@@ -1,5 +1,6 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/mixins" as *;
+@use "../../abstracts/functions" as *;
 
 .toolbar {
   display: flex;
@@ -34,14 +35,14 @@
   }
 
   &__label {
-    font-size: 0.75rem;
+    font-size: px-to-rem(12);
     font-weight: 600;
     letter-spacing: 0.05em;
     color: $color-light-text-muted;
     text-transform: uppercase;
 
     @media (min-width: $breakpoint-sm) {
-      font-size: 0.8rem;
+      font-size: px-to-rem(12.8);
     }
   }
 
@@ -52,13 +53,13 @@
     background-color: $color-light-surface-alt;
     padding: $space-3;
     color: $color-light-text;
-    font-size: 0.9rem;
+    font-size: px-to-rem(14.4);
     transition: all 0.2s ease;
     width: 100%;
 
     @media (min-width: $breakpoint-sm) {
       padding: $space-3 $space-4;
-      font-size: 0.95rem;
+      font-size: px-to-rem(15.2);
     }
 
     &:focus-visible {

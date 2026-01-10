@@ -1,12 +1,13 @@
 @use "sass:color";
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
 
 .button {
   border-radius: $radius-md;
   padding: $space-3 $space-4;
   border: 1px solid transparent;
-  font-size: 0.875rem;
+  font-size: px-to-rem(14);
   font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -18,7 +19,7 @@
 
   @include responsive(sm) {
     padding: $space-3 $space-5;
-    font-size: 0.9rem;
+    font-size: px-to-rem(14.4);
   }
 
   &--primary {

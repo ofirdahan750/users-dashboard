@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction, Reducer } from "@reduxjs/toolkit";
 import type { Theme, ThemeState } from "types";
 import { THEME_LIGHT, THEME_DARK, LOCAL_STORAGE_KEY_THEME } from "constants";
 import { localStorageUtil } from "utils";
@@ -13,8 +13,9 @@ const isValidTheme = (value: string): boolean => {
 const getInitialTheme = (): Theme => {
   const savedTheme: string =
     localStorageUtil.get<string>(LOCAL_STORAGE_KEY_THEME) || ""; // get saved theme from localStorage or empty string if not found
-
-  if (isValidTheme(savedTheme)) { // if saved theme is valid, return it
+  // check if saved theme is valid
+  if (isValidTheme(savedTheme)) {
+    // if saved theme is valid, return it
     return savedTheme as Theme; // cast saved theme to Theme type
   } else {
     localStorageUtil.set(LOCAL_STORAGE_KEY_THEME, THEME_LIGHT); // if saved theme is not valid, set default theme to light
@@ -42,4 +43,4 @@ export const themeSlice = createSlice({
 });
 
 export const { setTheme, toggleTheme } = themeSlice.actions;
-export const themeReducer = themeSlice.reducer;
+export const themeReducer: Reducer<ThemeState> = themeSlice.reducer;

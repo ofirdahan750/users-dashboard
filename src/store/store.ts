@@ -6,10 +6,9 @@ import { searchReducer } from "./searchSlice";
 
 export const store = configureStore({
   reducer: {
-    users: usersReducer,
-    theme: themeReducer,
-    loading: loadingReducer,
-    search: searchReducer,
+    users: usersReducer, // users reducer
+    theme: themeReducer, // theme reducer
+    loading: loadingReducer, // loading reducer
+    search: searchReducer, // search reducer
   },
 });
-

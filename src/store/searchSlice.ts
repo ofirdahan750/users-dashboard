@@ -26,7 +26,7 @@ export const searchSlice = createSlice({
     // update search term and save to localStorage
     setSearchTerm: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload; // update search term
-      localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, action.payload);
+      localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, action.payload); // save search to localStorage
     },
     // clear search term and remove from localStorage
     clearSearchTerm: (state) => {

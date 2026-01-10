@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type Reducer } from "@reduxjs/toolkit";
 import { fetchUsers } from "store";
 import type { LoadingState } from "types";
 
@@ -14,17 +14,17 @@ export const loadingSlice = createSlice({
     builder
       // fetchUsers request started, show loading
       .addCase(fetchUsers.pending, (state) => {
-        state.isLoading = true;
+        state.isLoading = true; // show loading
       })
       // fetchUsers request finished successfully, hide loading
       .addCase(fetchUsers.fulfilled, (state) => {
-        state.isLoading = false;
+        state.isLoading = false; // hide loading
       })
       // fetchUsers request failed, hide loading
       .addCase(fetchUsers.rejected, (state) => {
-        state.isLoading = false;
+        state.isLoading = false; // hide loading
       });
   },
 });
 
-export const loadingReducer = loadingSlice.reducer;
+export const loadingReducer: Reducer<LoadingState> = loadingSlice.reducer;

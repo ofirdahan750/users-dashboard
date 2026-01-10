@@ -35,16 +35,16 @@ export const UsersToolbar = () => {
   const theme: Theme = useAppSelector((state) => state.theme.mode);
 
   const [localSearchTerm, setLocalSearchTerm] = useState<string>(searchTerm);
-  const debouncedSearchTerm: string = useDebounce(
+  const debouncedSearchTerm: string = useDebounce<string>(
     localSearchTerm,
     SEARCH_DEBOUNCE_DELAY
   );
 
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(setSearchTerm(debouncedSearchTerm));
   }, [debouncedSearchTerm, dispatch]);
 
-  useEffect(() => {
+  useEffect((): void => {
     setLocalSearchTerm(searchTerm);
   }, [searchTerm]);
 

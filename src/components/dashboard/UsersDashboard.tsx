@@ -53,7 +53,7 @@ export const UsersDashboard = () => {
   };
 
   // Retry fetching users when error occurs
-  const handleRetry = () => {
+  const handleRetry = (): void => {
     dispatch(fetchUsers());
   };
 

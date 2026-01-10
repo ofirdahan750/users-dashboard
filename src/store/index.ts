@@ -3,3 +3,4 @@ export * from "./searchSlice";
 export * from "./themeSlice";
 export * from "./loadingSlice";
 export * from "./store";
+export * from "../types/storeState";

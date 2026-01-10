@@ -1,6 +1,7 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction, type Reducer } from "@reduxjs/toolkit";
 import { LOCAL_STORAGE_KEY_SEARCH } from "constants";
 import { localStorageUtil } from "utils";
+import type { SearchState } from "types";
 
 // load saved search from localStorage when app starts
 const getInitialSearchTerm = (): string => {
@@ -10,7 +11,7 @@ const getInitialSearchTerm = (): string => {
   return savedSearch;
 };
 
-const initialState = {
+const initialState: SearchState = {
   searchTerm: getInitialSearchTerm(),
 };
 
@@ -32,4 +33,4 @@ export const searchSlice = createSlice({
 });
 
 export const { setSearchTerm, clearSearchTerm } = searchSlice.actions;
-export const searchReducer = searchSlice.reducer;
+export const searchReducer: Reducer<SearchState> = searchSlice.reducer;

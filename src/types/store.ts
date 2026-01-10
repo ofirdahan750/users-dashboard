@@ -1,5 +1,4 @@
 import type { store } from "store";
-import type { User } from "./user";
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
@@ -22,9 +21,3 @@ export type UsersSortField =
 export type UsersSortFieldName = "name" | "username" | "email" | "phone" | "address" | "company" | "website";
 
 export type UsersSortDirection = "asc" | "desc";
-
-export type UsersState = {
-  users: User[];
-  errorMessage: string ;
-  sortField: UsersSortField;
-};

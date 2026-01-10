@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "store";
+import type { LoadingState } from "types";
 
-const initialState = {
+const initialState: LoadingState = {
   isLoading: false,
 };
 

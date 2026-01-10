@@ -3,3 +3,4 @@ export * from "./theme";
 export * from "./user";
 export * from "./userProps";
 export * from "./uiProps";
+export * from "./storeState";

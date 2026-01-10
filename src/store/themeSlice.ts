@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { Theme } from "types";
+import type { Theme, ThemeState } from "types";
 import { THEME_LIGHT, THEME_DARK, LOCAL_STORAGE_KEY_THEME } from "constants";
 import { localStorageUtil } from "utils";
 
@@ -14,10 +14,6 @@ const getInitialTheme = (): Theme => {
   localStorageUtil.set(LOCAL_STORAGE_KEY_THEME, THEME_LIGHT);
   return THEME_LIGHT;
 };
-
-interface ThemeState {
-  mode: Theme;
-}
 
 const initialState: ThemeState = {
   mode: getInitialTheme(),

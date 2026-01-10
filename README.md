@@ -2,6 +2,9 @@
 
 A modern React TypeScript dashboard application for browsing, searching, and sorting users from the JSONPlaceholder API. Built with a mobile-first responsive design and featuring real-time search with debouncing, comprehensive sorting options, and theme support.
 
+🔗 **Live Demo**: [dashboardusers.netlify.app](https://dashboardusers.netlify.app)  
+📦 **Repository**: [github.com/ofirdahan750/users-dashboard](https://github.com/ofirdahan750/users-dashboard)
+
 ## 🚀 Features
 
 ### Core Functionality
@@ -57,7 +60,7 @@ A modern React TypeScript dashboard application for browsing, searching, and sor
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/ofirdahan750/users-dashboard.git
 cd users-dashboard
 ```
 
@@ -239,4 +242,4 @@ Output directory: `dist/`
 
 ## 📄 License
 
-This project is private.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

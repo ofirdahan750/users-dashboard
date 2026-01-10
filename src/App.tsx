@@ -20,7 +20,9 @@ const AppContent = () => {
   return (
     <MuiThemeProvider theme={muiTheme}>
       <CssBaseline />
-      <UsersDashboard />
+      <div className={`app-root app-root--theme-${theme}`}>
+        <UsersDashboard />
+      </div>
     </MuiThemeProvider>
   );
 };

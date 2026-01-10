@@ -14,7 +14,7 @@ import type { Theme, User, EmptyMessage, AppDispatch } from "types";
 import { useAppDispatch, useAppSelector } from "hooks";
 import { UsersToolbar } from "./UsersToolbar";
 import { UsersList } from "./UsersList/UsersList";
-import { LoadingState, ErrorState, EmptyState, Button } from "components/common";
+import { LoadingState, ErrorState, EmptyState, Button, Footer } from "components/common";
 
 export const UsersDashboard = () => {
   const dispatch: AppDispatch = useAppDispatch(); // send actions to store
@@ -51,7 +51,7 @@ export const UsersDashboard = () => {
   };
 
   return (
-    <div className={`app-root app-root--theme-${theme}`}>
+    <>
       {isLoading && (
         <div className="app-root__loading-overlay">
           <div className="app-root__loading-spinner">
@@ -102,6 +102,7 @@ export const UsersDashboard = () => {
           )}
         </section>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 };

@@ -24,9 +24,9 @@ export const useLocalStorage = <T,>(key: string, initialValue: T) => {
 
   // update state and localStorage
   const setValue = (value: T | ((val: T) => T)) => {
-    const valueToStore = value instanceof Function ? value(storedValue) : value;
-    setStoredValue(valueToStore);
-    localStorageUtil.set(key, valueToStore);
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      setStoredValue(valueToStore);
+      localStorageUtil.set(key, valueToStore);
   };
 
   return [storedValue, setValue] as const;

@@ -1,22 +1,35 @@
 import { useState, useEffect, type ChangeEvent } from "react";
-import { TextField, Select, MenuItem, FormControl, InputLabel, ListSubheader, IconButton, InputAdornment } from "@mui/material";
+import {
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  ListSubheader,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
 import { Clear as ClearIcon } from "@mui/icons-material";
 import type { SelectChangeEvent } from "@mui/material";
-import { SEARCH_LABEL, SEARCH_PLACEHOLDER, SORT_LABEL } from "../../constants/texts";
+import {
+  SEARCH_LABEL,
+  SEARCH_PLACEHOLDER,
+  SORT_LABEL,
+} from "../../constants/texts";
 import { SORT_OPTIONS } from "../../constants/sortOptions";
 import { setSortField } from "../../store/usersSlice";
-import { setSearchTerm, clearSearchTerm } from "../../store/searchSlice";
+import { setSearchTerm } from "../../store/searchSlice";
 import type { UsersSortField } from "../../types/store";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useDebounce } from "../../hooks/useDebounce";
 
 export const UsersToolbar = () => {
   const dispatch = useAppDispatch();
-  
+
   const searchTerm = useAppSelector((state) => state.search.searchTerm);
   const sortField = useAppSelector((state) => state.users.sortField);
   const theme = useAppSelector((state) => state.theme.mode);
-  
+
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
   const debouncedSearchTerm = useDebounce(localSearchTerm, 300);
 
@@ -34,7 +47,6 @@ export const UsersToolbar = () => {
 
   const handleSortChange = (event: SelectChangeEvent<string>) => {
     dispatch(setSortField(event.target.value as UsersSortField));
-    dispatch(clearSearchTerm());
   };
 
   const handleClearSearch = () => {
@@ -102,4 +114,3 @@ export const UsersToolbar = () => {
     </nav>
   );
 };
-

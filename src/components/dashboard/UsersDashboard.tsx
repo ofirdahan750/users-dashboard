@@ -32,6 +32,7 @@ export const UsersDashboard = () => {
 
   // Fetch users from the API when the component first loads
   useEffect(() => {
+    console.log('errorMessage', errorMessage);
     dispatch(fetchUsers());
   }, [dispatch]);
 

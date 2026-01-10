@@ -13,9 +13,7 @@ export const Button = ({
 
   // remove color prop if it exists
   const muiProps = { ...props };
-  if ("color" in muiProps) {
-    delete muiProps.color;
-  }
+
 
   return (
     <MuiButton

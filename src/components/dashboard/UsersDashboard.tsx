@@ -27,13 +27,16 @@ export const UsersDashboard = () => {
   const errorMessage = useAppSelector((state) => state.users.errorMessage);
   const users = useAppSelector((state) => state.users.users);
   const searchTerm = useAppSelector((state) => state.search.searchTerm);
-
+  
   const theme = useAppSelector((state) => state.theme.mode);
 
   // Fetch users from the API when the component first loads
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
+
+
 
   // Determine which empty message to show based on the current state:
   // - If there are no users at all and no search is active, show "No users found"
@@ -95,7 +98,7 @@ export const UsersDashboard = () => {
           )}
 
           {/* If everything is good and we have users, display the list */}
-          {!isLoading && !errorMessage && !!filteredUsers.length && (
+          {!isLoading && !errorMessage && filteredUsers.length && (
             <UsersList users={filteredUsers} />
           )}
         </section>

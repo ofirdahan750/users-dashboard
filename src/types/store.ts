@@ -25,6 +25,6 @@ export type UsersSortDirection = "asc" | "desc";
 
 export type UsersState = {
   users: User[];
-  errorMessage: string | null;
+  errorMessage: string ;
   sortField: UsersSortField;
 };

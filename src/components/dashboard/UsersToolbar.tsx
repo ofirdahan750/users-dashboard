@@ -17,6 +17,7 @@ import {
   SORT_LABEL,
 } from "../../constants/texts";
 import { SORT_OPTIONS } from "../../constants/sortOptions";
+import { SEARCH_DEBOUNCE_DELAY } from "../../constants/store";
 import { setSortField } from "../../store/usersSlice";
 import { setSearchTerm } from "../../store/searchSlice";
 import type { UsersSortField } from "../../types/store";
@@ -31,7 +32,7 @@ export const UsersToolbar = () => {
   const theme = useAppSelector((state) => state.theme.mode);
 
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
-  const debouncedSearchTerm = useDebounce(localSearchTerm, 300);
+  const debouncedSearchTerm = useDebounce(localSearchTerm, SEARCH_DEBOUNCE_DELAY);
 
   useEffect(() => {
     dispatch(setSearchTerm(debouncedSearchTerm));

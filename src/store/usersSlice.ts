@@ -96,7 +96,7 @@ export const applySearchAndSort = (
 
 const initialState: UsersState = {
   users: [],
-  errorMessage: null,
+  errorMessage: '',
   sortField: SORT_VALUE_NAME_ASC,
 };
 
@@ -111,7 +111,7 @@ export const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.pending, (state) => {
-        state.errorMessage = null;
+        state.errorMessage = '';
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.users = action.payload;

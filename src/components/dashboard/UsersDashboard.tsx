@@ -18,25 +18,23 @@ import { LoadingState } from "../common/LoadingState";
 import { ErrorState } from "../common/ErrorState";
 import { EmptyState } from "../common/EmptyState";
 import { Button } from "../common/Button";
+import type { User } from "../../types/user";
 
 export const UsersDashboard = () => {
   const dispatch = useAppDispatch();
 
-  const filteredUsers = useAppSelector(selectFilteredUsers);
-  const isLoading = useAppSelector((state) => state.loading.isLoading);
-  const errorMessage = useAppSelector((state) => state.users.errorMessage);
-  const users = useAppSelector((state) => state.users.users);
-  const searchTerm = useAppSelector((state) => state.search.searchTerm);
-  
+  const filteredUsers: User[] = useAppSelector(selectFilteredUsers);
+  const isLoading:boolean = useAppSelector((state) => state.loading.isLoading);
+  const errorMessage:string = useAppSelector((state) => state.users.errorMessage);
+  const users:User[] = useAppSelector((state) => state.users.users);
+  const searchTerm:string = useAppSelector((state) => state.search.searchTerm);
+
   const theme = useAppSelector((state) => state.theme.mode);
 
   // Fetch users from the API when the component first loads
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
-
-
-
 
   // Determine which empty message to show based on the current state:
   // - If there are no users at all and no search is active, show "No users found"
@@ -93,9 +91,7 @@ export const UsersDashboard = () => {
           {isLoading && <LoadingState />}
 
           {/* If loading finished but there was an error, show error message with retry button */}
-          {!isLoading && errorMessage && (
-            <ErrorState onRetry={handleRetry} />
-          )}
+          {!isLoading && errorMessage && <ErrorState onRetry={handleRetry} />}
 
           {/* If no error and no users found, show empty state message */}
           {!isLoading && !errorMessage && !filteredUsers.length && (

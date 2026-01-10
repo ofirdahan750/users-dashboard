@@ -1,4 +1,8 @@
-import { createSlice, type PayloadAction, type Reducer } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  type PayloadAction,
+  type Reducer,
+} from "@reduxjs/toolkit";
 import { LOCAL_STORAGE_KEY_SEARCH } from "constants";
 import { localStorageUtil } from "utils";
 import type { SearchState } from "types";
@@ -6,13 +10,13 @@ import type { SearchState } from "types";
 // load saved search from localStorage when app starts
 const getInitialSearchTerm = (): string => {
   const savedSearch: string =
-    localStorageUtil.get<string>(LOCAL_STORAGE_KEY_SEARCH) || "";
-  localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, savedSearch);
-  return savedSearch;
+    localStorageUtil.get<string>(LOCAL_STORAGE_KEY_SEARCH) || ""; // get saved search from localStorage or empty string if not found
+  localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, savedSearch); // save search to localStorage
+  return savedSearch; // return saved search or empty string
 };
 
 const initialState: SearchState = {
-  searchTerm: getInitialSearchTerm(),
+  searchTerm: getInitialSearchTerm(), // get initial search term from localStorage or empty string if not found
 };
 
 export const searchSlice = createSlice({
@@ -21,13 +25,13 @@ export const searchSlice = createSlice({
   reducers: {
     // update search term and save to localStorage
     setSearchTerm: (state, action: PayloadAction<string>) => {
-      state.searchTerm = action.payload;
+      state.searchTerm = action.payload; // update search term
       localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, action.payload);
     },
     // clear search term and remove from localStorage
     clearSearchTerm: (state) => {
-      state.searchTerm = "";
-      localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, "");
+      state.searchTerm = ""; // clear search term
+      localStorageUtil.set(LOCAL_STORAGE_KEY_SEARCH, ""); // reset search term value from localStorage
     },
   },
 });

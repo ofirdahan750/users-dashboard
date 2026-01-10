@@ -10,6 +10,7 @@ import {
   THEME_TOGGLE_ARIA_LABEL,
 } from "../../constants/texts";
 import { THEME_LIGHT } from "../../constants/theme";
+import type { Theme } from "../../types/theme";
 import { UsersToolbar } from "./UsersToolbar";
 import { UsersList } from "./UsersList/UsersList";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
@@ -19,17 +20,20 @@ import { ErrorState } from "../common/ErrorState";
 import { EmptyState } from "../common/EmptyState";
 import { Button } from "../common/Button";
 import type { User } from "../../types/user";
+import type { EmptyMessage } from "../../types/uiProps";
 
 export const UsersDashboard = () => {
   const dispatch = useAppDispatch();
 
   const filteredUsers: User[] = useAppSelector(selectFilteredUsers);
-  const isLoading:boolean = useAppSelector((state) => state.loading.isLoading);
-  const errorMessage:string = useAppSelector((state) => state.users.errorMessage);
-  const users:User[] = useAppSelector((state) => state.users.users);
-  const searchTerm:string = useAppSelector((state) => state.search.searchTerm);
+  const isLoading: boolean = useAppSelector((state) => state.loading.isLoading);
+  const errorMessage: string = useAppSelector(
+    (state) => state.users.errorMessage
+  );
+  const users: User[] = useAppSelector((state) => state.users.users);
+  const searchTerm: string = useAppSelector((state) => state.search.searchTerm);
 
-  const theme = useAppSelector((state) => state.theme.mode);
+  const theme: Theme = useAppSelector((state) => state.theme.mode);
 
   // Fetch users from the API when the component first loads
   useEffect(() => {
@@ -39,7 +43,7 @@ export const UsersDashboard = () => {
   // Determine which empty message to show based on the current state:
   // - If there are no users at all and no search is active, show "No users found"
   // - If there's an active search but no results, show "No users match your search"
-  const emptyMessage =
+  const emptyMessage: EmptyMessage =
     !users.length && !searchTerm ? EMPTY_STATE_TEXT : EMPTY_SEARCH_TEXT;
 
   // Toggle between light and dark theme

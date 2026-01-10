@@ -48,15 +48,15 @@ export const UsersToolbar = () => {
     setLocalSearchTerm(searchTerm);
   }, [searchTerm]);
 
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setLocalSearchTerm(event.target.value);
   };
 
-  const handleSortChange = (event: SelectChangeEvent<string>) => {
+  const handleSortChange = (event: SelectChangeEvent<string>): void => {
     dispatch(setSortField(event.target.value as UsersSortField));
   };
 
-  const handleClearSearch = () => {
+  const handleClearSearch = (): void => {
     setLocalSearchTerm("");
     dispatch(setSearchTerm(""));
   };

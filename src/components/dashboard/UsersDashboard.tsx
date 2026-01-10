@@ -99,7 +99,7 @@ export const UsersDashboard = () => {
           )}
 
           {/* If everything is good and we have users, display the list */}
-          {!isLoading && !errorMessage && filteredUsers.length && (
+          {!isLoading && !errorMessage && filteredUsers.length >= 1 && (
             <UsersList users={filteredUsers} />
           )}
         </section>

@@ -36,7 +36,7 @@ const parseSortField = (
 ): [UsersSortFieldName, UsersSortDirection] => {
   const [field, direction] = sortField.split("-") as [
     UsersSortFieldName,
-    UsersSortDirection
+    UsersSortDirection,
   ];
   return [field, direction];
 };
@@ -52,7 +52,7 @@ const filterUsers = (users: User[], searchTerm: string): User[] => {
     // Remove @ from username for search comparison
     const usernameWithoutAt = user.username.replace(/^@/, "").toLowerCase();
     const searchWithoutAt = normalizedSearch.replace(/^@/, "");
-    
+
     const searchableFields = [
       user.name,
       usernameWithoutAt, // Use username without @

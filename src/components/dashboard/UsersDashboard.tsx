@@ -27,12 +27,11 @@ export const UsersDashboard = () => {
   const errorMessage = useAppSelector((state) => state.users.errorMessage);
   const users = useAppSelector((state) => state.users.users);
   const searchTerm = useAppSelector((state) => state.search.searchTerm);
-  
+
   const theme = useAppSelector((state) => state.theme.mode);
 
   // Fetch users from the API when the component first loads
   useEffect(() => {
-    console.log('errorMessage', errorMessage);
     dispatch(fetchUsers());
   }, [dispatch]);
 

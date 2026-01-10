@@ -9,9 +9,9 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   // convert our variant to mui variant
-  const muiVariant = variant === "primary" ? "contained" : variant === "secondary" ? "outlined" : "text";
+  const muiVariant = variant === "primary" ? "contained" : variant === "secondary" ? "outlined" : "text"; // convert our variant to mui variant
 
-  const muiProps = { ...props };
+  const muiProps = { ...props }; // spread props to mui button
 
 
   return (

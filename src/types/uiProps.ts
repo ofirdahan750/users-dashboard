@@ -8,7 +8,6 @@ export type LoadingStateProps = {
 export type ErrorStateProps = {
   message?: string;
   onRetry?: () => void;
-  retryButtonText?: string;
 };
 
 export type EmptyMessage = typeof EMPTY_STATE_TEXT | typeof EMPTY_SEARCH_TEXT;

@@ -13,7 +13,7 @@ const AppContent = () => {
   // setup mui theme
   const muiTheme = createTheme({
     palette: {
-      mode: theme === THEME_LIGHT ? THEME_LIGHT : THEME_DARK,
+      mode: theme === THEME_LIGHT ? THEME_LIGHT : THEME_DARK, // set mui theme mode to light or dark
     },
   });
 

@@ -20,7 +20,7 @@
     transition: box-shadow 0.3s ease, transform 0.2s ease;
     overflow: hidden;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       padding: $space-6;
     }
 

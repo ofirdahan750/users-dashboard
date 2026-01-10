@@ -16,7 +16,7 @@
   overflow: hidden;
   animation: fadeIn 0.3s ease-out;
 
-  @media (min-width: 640px) {
+  @media (min-width: $breakpoint-sm) {
     padding: $space-5;
   }
 
@@ -33,7 +33,7 @@
     padding-bottom: $space-3;
     border-bottom: 1px solid $color-light-border-subtle;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       margin-bottom: $space-5;
       padding-bottom: $space-4;
     }
@@ -46,7 +46,7 @@
     margin-bottom: $space-1;
     line-height: line-height-from-rem(1.1, 1.3);
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       font-size: 1.25rem;
       line-height: line-height-from-rem(1.25, 1.3);
     }
@@ -58,7 +58,7 @@
     font-weight: 400;
     line-height: line-height-from-rem(0.875, 1.4);
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       font-size: 0.9rem;
       line-height: line-height-from-rem(0.9, 1.4);
     }
@@ -79,7 +79,7 @@
     font-size: 0.85rem;
     padding: $space-2 0;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       flex-direction: row;
       align-items: flex-start;
       gap: $space-4;
@@ -101,7 +101,7 @@
     min-width: 5rem;
     flex-shrink: 0;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       font-size: 0.8rem;
     }
   }

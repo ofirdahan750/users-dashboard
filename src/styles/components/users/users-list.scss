@@ -9,7 +9,7 @@
   width: 100%;
   box-sizing: border-box;
 
-  @media (min-width: 640px) {
+  @media (min-width: $breakpoint-sm) {
     margin-top: $space-6;
     flex-direction: row;
     flex-wrap: wrap;
@@ -29,7 +29,7 @@
     max-width: 100%;
     flex: 0 0 100%;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       flex: 0 0 calc(50% - #{math.div($space-5, 2)});
       max-width: calc(50% - #{math.div($space-5, 2)});
     }

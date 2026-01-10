@@ -34,7 +34,7 @@
     text-align: center;
     line-height: line-height-from-rem(0.9, 1.5);
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       font-size: 1rem;
       line-height: line-height-from-rem(1, 1.5);
     }

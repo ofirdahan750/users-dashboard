@@ -20,7 +20,7 @@
   &__titles {
     max-width: 100%;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       max-width: 100%;
     }
 
@@ -37,7 +37,7 @@
     margin-bottom: $space-2;
     color: $color-light-text;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       font-size: 2rem;
       line-height: line-height-from-rem(2, 1.2);
     }
@@ -55,7 +55,7 @@
     line-height: line-height-from-rem(0.9, 1.5);
     font-weight: 400;
 
-    @media (min-width: 640px) {
+    @media (min-width: $breakpoint-sm) {
       font-size: 1rem;
       line-height: line-height-from-rem(1, 1.5);
     }
